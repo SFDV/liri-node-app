@@ -11,10 +11,16 @@
     "url": "git+https://github.com/SFDV/liri-node-app.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dan Vickey",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SFDV/liri-node-app/issues"
   },
-  "homepage": "https://github.com/SFDV/liri-node-app#readme"
+  "homepage": "https://github.com/SFDV/liri-node-app#readme",
+  "dependencies": {
+    "omdb": "^0.8.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {}
 }
