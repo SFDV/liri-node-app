@@ -2,7 +2,7 @@ var keys = require("./keys.js");
 
 var request = require('request');
 var Twitter = require('twitter');
-var Spotify = require('spotify');
+var Spotify = require('node-spotify-api');
 var fs = require('fs');
 var client = new Twitter(keys.twitterKeys);
 var input = process.argv;
@@ -46,7 +46,7 @@ function spotify(inputs) {
 
 	var spotify = new Spotify(keys.spotifyKeys);
 		if (!inputs){
-        	inputs = 'I Want It That Way';
+        	inputs = 'All Star';
     	}
 		spotify.search({ type: 'track', query: inputs }, function(err, data) {
 			if (err){
@@ -65,7 +65,7 @@ function spotify(inputs) {
 
 function movie(inputs) {
 
-	var queryUrl = "http://www.omdbapi.com/?t=" + inputs + "&y=&plot=short&apikey=trinity";
+	var queryUrl = "http://www.omdbapi.com/?t=" + inputs + "&y=&plot=short&apikey=40e9cece";
 
 	request(queryUrl, function(error, response, body) {
 		if (!inputs){
@@ -92,10 +92,10 @@ function doit() {
     		return console.log(error);
   		}
 
-		// Then split it by commas (to make it more readable)
+		
 		var dataArr = data.split(",");
 
-		// Each command is represented. Because of the format in the txt file, remove the quotes to run these commands. 
+		 
 		if (dataArr[0] === "spotify-this-song") {
 			var songcheck = dataArr[1].slice(1, -1);
 			spotify(songcheck);
